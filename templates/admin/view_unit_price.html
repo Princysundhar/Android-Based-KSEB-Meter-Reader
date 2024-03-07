@@ -1,0 +1,40 @@
+{% extends 'admin/admin_index.html' %}
+{% block body %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table width="200" border="1" class="table table-bordered">
+     <tr style="background-color: #0b6bd3;color: black">
+      <th scope="col">Sl.No</th>
+      <th scope="col">Connection Type</th>
+      <th scope="col">Unit From</th>
+      <th scope="col">Unit To</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Last Updated</th>
+      <th scope="col">&nbsp;</th>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>&nbsp;{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.connection_type }}</td>
+      <td>&nbsp;{{ i.unit_from }}</td>
+      <td>&nbsp;{{ i.unit_to }}</td>
+      <td>&nbsp;{{ i.amount }}</td>
+      <td>&nbsp;{{ i.last_updated }}</td>
+      <td><p><a href="/update_unit_price/{{ i.id }}#ff" class="btn btn-primary" >Update</a></p>
+      <p><a href="/delete_unit_price/{{ i.id }}" class="btn btn-danger">Delete</a></p></td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+</html>
+
+{% endblock %}
